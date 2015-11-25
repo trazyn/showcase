@@ -1,0 +1,47 @@
+
+@import (less) "./color.less";
+
+.md-link {
+    position: relative;
+    cursor: pointer;
+    transition: .2s;
+
+    &,
+    &:hover,
+    &:active,
+    &:visited { text-decoration: none; }
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        display: block;
+        width: 0;
+        height: 1px;
+        background-color: @coral;
+        transition: .2s;
+    }
+
+    &:after { left: 49%; }
+
+    &:before {
+        left: 51%;
+        transform: translateX(-50%);
+    }
+
+    &:hover,
+    &.active {
+        color: #fff;
+        &:before { transform: translateX(-100%); }
+        &:before,
+        &:after { width: 51%; }
+    }
+
+    &.active:hover {
+        color: #fff;
+        &:before { transform: translateX(-100%); }
+        &:before,
+        &:after { width: 41%; }
+    }
+}
